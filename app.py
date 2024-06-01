@@ -1,13 +1,11 @@
-import statsmodels.api as sm
 import pandas as pd
-import numpy as np
 import streamlit as st
 from sklearn.metrics import accuracy_score
 
 st.header('Kto ocalał z Titanica?')
 st.image('titanic.png')
 st.markdown('<p style="font-size: 10px;">Źródło grafiki: <a href = https://itg.com.pl/2023/12/23/history-and-data-science-the-titanic-kaggle-challenge/>https://itg.com.pl/2023/12/23/history-and-data-science-the-titanic-kaggle-challenge/</a></p>', unsafe_allow_html=True)
-data = pd.read_csv(r'dane/titanic.csv', index_col = 0)
+data = pd.read_csv(r'titanic.csv', index_col = 0)
 data = data.replace({'Sex': {'male': 1, 'female': 0}})
 
 data_logit = data[['Survived', 'Age_scaled', 'Pclass', 'Sex']].dropna(axis = 0)
